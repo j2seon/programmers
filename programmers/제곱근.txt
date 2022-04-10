@@ -1,0 +1,18 @@
+public class solution {
+	
+	long solution(long n) {
+	    long answer = 0;
+	    
+	     long num= (long) Math.sqrt(n);  //n의 제곱근을 num에 넣는다.
+	    if(n==Math.pow(num, 2)) {
+	    	answer=(long) Math.pow(num+1, 2);
+	    }else
+	    	answer=-1;
+	 
+	    return answer;
+	}
+	public static void main(String[] args) {
+		solution sol =new solution();
+		System.out.println(sol.solution(121));
+	}
+}
