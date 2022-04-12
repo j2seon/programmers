@@ -1,0 +1,24 @@
+public class Solution {
+	//짝수라면 2로 나누고 홀수면 3을 곱하고 1을더하고 1이될대까지 반복한다.
+	  public int solution(int num) {
+	        long num1=num;
+	        for(int i=0; i<500; i++) {
+	        	if(num1==1) {
+	        	 return i;
+	        	}
+	        	if(num1%2==0) {
+		        	num1=num1/2;
+		        }else {
+		        	num1=(num1*3)+1;
+		        }
+	        }
+			return -1;
+	   
+	  
+	  }
+	    
+	public static void main(String[] args) {
+		Solution sol =new Solution();
+		System.out.println(sol.solution(626331));
+	}
+}

@@ -1,0 +1,21 @@
+public class Solution {
+	  public boolean solution(int x) {
+	        boolean answer = true;
+	        int a= x;
+	        int plus = 0;
+	        while(a!=0) {
+	        	plus+=(a%10);
+	        	a=a/10;
+	        }
+	        System.out.println(x%plus);
+	        if(x%plus==0) {
+	        	return answer;
+	        }else {
+	        	return !answer;
+	        }
+    }    
+	public static void main(String[] args) {
+		Solution sol =new Solution();
+		System.out.println(sol.solution(30));
+	}
+}
