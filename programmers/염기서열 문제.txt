@@ -1,0 +1,62 @@
+public class Main {
+    public static void main(String[] args) {
+        String dna = "GATCCGCCCGCCTCGGCCTCCCAAAGTGCTGGGATTACAGGTGTGAGCCA"
+                   + "CCACGCCCGGCTAATTTTTATTTATTTATTTAAAGACAGAGTCTCACTCT"
+                   + "GTCACTCAGGCTAGAGTGCAGTGGCACCATCTCAGCTCACTGCAGCCTTG"
+                   + "ACCTCCCTGGGCTCCGGTGATTTCACCCTCCCAAGTAGCTAGGACTACAG"
+                   + "GCACATGCCACGACACCCAGCTAATTTTTTATTTTCTGTGAAGTCAAGGT"
+                   + "CTTGCTACGTTGCCCATGCTGGTATCAAACCCCTGGGCTCAATCAATCCT"
+                   + "TCCACCTCAGCCTCCCCAAGTATTGGGGTTACAGGCATGAGCTACCACAC"
+                   + "TCAGCCCTAGCCTACTTGAAACGTGTTCAGAGCATTTAAGTTACCCTACA"
+                   + "GTTGGGCAAAGTCATCTAACACAAAGCCCTTTTTATAGTAATAAAATGTT"
+                   + "GTATATCTCATGTGATTTATTGAATATTGTTACTGAAAGTGAGAAACAGC"
+                   + "ATGGTTGCATGAAAGGAGGCACAGTCGAGCCAGGCACAGCCTGGGCGCAG"
+                   + "AGCGAGACTCAAAAAAAGAAAAGGCCAGGCGCACTGGCTCACGCCTGTAA"
+                   + "TCCCAGCATTTCGGGAGGCTGAGGCGGGTGGATCACCTGAGGTCAGGAGT"
+                   + "TCAAGACCAGCCTAGCCAACATGGTGAAACCCCGTCTCTACTAAAATACA"
+                   + "AAAATTAACCGGGCGTGATGGCAGGTGCCTGTAATCCCAGCTACTTGGGA"
+                   + "GGCTGAGGCAGGAGAATCGCTTGAACCAGGAGGCGGAGGTTGCAGGGAGC"
+                   + "CAAGATGGCGCCACTGCACTCCAGCCTGGGCGATAGAGTGAGACTCCGTC"
+                   + "TCAGAAAAAAAAGAAAAGAAACGAGGCACAGTCGCATGCACATGTAGTCC"
+                   + "CAGTTACTTGAGAGGCTAAGGCAGGAGGATCTCTTGAGCCCAAGAGTTTG"
+                   + "AGTCCAGCCTGAACAACATAGCAAGACATCATCTCTAAAATTTAAAAAAG"
+                   + "GGCCGGGCACAGTGGCTCACACCTGTAATCCCAGCACTTTGGGAGGTGGA"
+                   + "GGTGGGTAGATCACCTGACGTCAGGAGTTGGAAACCAGCCTGGCTAACAT";
+        
+	char[] charArray = dna.toCharArray();
+        //해당문자를 문자열로 만듬
+        char[] chara= new char[4];
+        //문자를 담을 문자열 생성
+        //-3인 이유는 4개 문자를 뜯는다고 생각할때 
+        //마지막의 문자의 3개 앞에까지만 읽어야되서! 
+        
+        int tagg=0; int ccag=0; int agcc=0; //문자랑 동일하면 ++하기위함
+	
+        for(int i =0; i<charArray.length-3; i++){
+            for(int j=0; j<chara.length; j++){
+                chara[j]=charArray[i+j];
+            }//안의 for까지 돌면 나오는 값은 chara[0]=charArray[0] chara[1]=charArray[1] chara[2]=charArray[2], chara[3]=charArray[3]
+            String an = new String(chara);
+            //나온것들을 문자로 바꿔서 
+            //해당문자가 밑의 switch문에 속하면 하나씩 올려준다.
+            switch (an){
+                case "TAGG":
+                    tagg++;
+                    break;
+                case "CCAG":
+                    ccag++;
+                    break;
+                case "AGCC":
+                    agcc++;
+                    break;
+                    
+            }
+            
+        }
+        System.out.println("TAGG: " + tagg);
+        System.out.println("CCAG: " + ccag);
+        System.out.println("AGCC: " + agcc);
+        
+        
+    }
+}

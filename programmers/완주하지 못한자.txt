@@ -1,0 +1,45 @@
+//첫번째 
+public class Solution {
+	public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        //참가자 String / 완료자 String 실패자만 출력하자/ 동명이인이 있을 수 있다. 
+        List<String> list = new ArrayList<String>();
+        
+        for( String a : participant) {
+        	list.add(a);
+        }
+        for(String b : completion) {
+        	list.remove(b);
+        }
+        	return list.get(0);
+    }
+	
+	public static void main(String[] args) {
+		Solution sol =new Solution();
+		System.out.println(sol.solution(new String[]{"leo", "kiki", "eden"}, new String[]{"eden","kiki"}));
+	}
+}
+
+// 두번째 
+
+String answer = "";
+        //참가자 String / 완료자 String 실패자만 출력하자/ 동명이인이 있을 수 있다. 
+        Map<String,Integer> map = new HashMap<String, Integer>();
+        
+        //Strings
+        for( String a : participant) {
+        	map.put(a, map.getOrDefault(a, 0)+1);
+        }
+        for( String a : completion) {
+        	map.put(a, map.getOrDefault(a, 0)-1);
+        	int n=map.get(a);
+        	if(n==0) {
+        		map.remove(a);
+        	}else {
+        		map.put(a, n);
+        	}
+        	
+        }
+		return map.keySet().iterator().next();
+       
+    }
